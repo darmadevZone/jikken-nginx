@@ -1,0 +1,20 @@
+services:
+  front:
+    container_name: front-app
+    build:
+      context: ./front
+    volumes:
+      - ./front:/var/www/front
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - 3000:3000
+
+  server:
+    build:
+      context: ./nginx
+    ports:
+      - 4080:80
+      - 4443:443
+    restart: always
