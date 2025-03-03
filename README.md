@@ -5,7 +5,25 @@
 - `nginx.conf`の設定
 - https://nginx.org/en/docs/
 
+## 完成の構成
+
+```
+./nginx/
+├── Dockerfile
+├── index.html
+├── nginx.conf
+└── ssl
+    ├── server.crt
+    ├── server.csr
+    ├── server.key
+    └── server.password
+
+```
+
+
 ## SSL 化で準備するもの
+
+**`server.crt`,`server.csr`,`server.key`,`server.password`を作成する(`server.password`は秘密鍵生成時のパスフレーズ)**
 
 - 秘密鍵
     ```
@@ -16,6 +34,7 @@
     - -aes128：128ビットのAES形式で暗号化
     - 2048：2048バイト長の鍵を作成
 
+  **パスフレーズを`server.password`に書いておく**
 
 - CSR(証明書署名要求)
 
